@@ -11,7 +11,7 @@ export default function App() {
 
   useEffect(() => {
     getRecipe();
-  }, []);
+  });
 
   function handleChange(event) {
     setSearchQuery(event.target.value);
