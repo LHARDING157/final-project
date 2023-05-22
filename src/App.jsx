@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
-// import LoginButton from "./components/Login";
-// import LogoutButton from "./components/Logout";
-// import Profile from "./components/Profile";
+import Recipes from "./pages/Recipes";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import RecipePage from "./pages/RecipePage";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [recipes, setRecipe] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    getRecipe();
+    getRecipes();
   }, []);
 
   function handleChange(event) {
@@ -21,46 +21,41 @@ export default function App() {
     event.preventDefault();
   }
 
-  async function getRecipe() {
+  async function getRecipes() {
     try {
       const API = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`;
       const res = await axios.get(API);
-      setRecipe(res.data.meals);
+      setRecipes(res.data.meals);
       console.log(res.data);
     } catch (error) {
       console.log(error);
+      setRecipes(
+        "https://aioseo.com/wp-content/uploads/2021/04/how-to-find-and-fix-404-errors-in-wordpress.png.webp"
+      );
     }
   }
 
   return (
-    <div className="App">
-      <h1 className="title">Recipes</h1>
-      {/* <LoginButton />
-      <LogoutButton />
-      <Profile /> */}
-      <div className="wrap">
-        <form className="search" onSubmit={handleSubmit}>
-          <input
-            className="searchTerm"
-            onChange={handleChange}
-            placeholder="Search Recipe"
+    <BrowserRouter>
+      <div className="App">
+        <h1 className="title">RandomFoods</h1>
+        <Link to="/">Home</Link>
+        <Link to="/Recipes">Recipes</Link>
+        <Routes>
+          <Route
+            path="/Recipes"
+            element={
+              <Recipes
+                recipes={recipes}
+                getRecipes={getRecipes}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+              />
+            }
           />
-          <button className="searchButton" onClick={getRecipe}>
-            🔍
-          </button>
-        </form>
+          <Route path="/Recipe/:id" element={<RecipePage />} />
+        </Routes>
       </div>
-      <div className="recipe-container">
-        {recipes.map(function (recipe) {
-          console.log(recipe);
-          return (
-            <div className="recipe">
-              <img src={recipe.strMealThumb} alt="" />
-              <h2>{recipe.strMeal}</h2>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    </BrowserRouter>
   );
 }
