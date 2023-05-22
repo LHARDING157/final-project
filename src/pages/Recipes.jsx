@@ -21,10 +21,10 @@ export default function Recipes({
         </form>
       </div>
       <div className="recipe-container">
-        {recipes.map(function (recipe) {
+        {recipes.map(function (recipe, idx) {
           console.log(recipe);
           return (
-            <Link to={`/recipe/${recipe.idMeal}`}>
+            <Link key={idx} to={`/recipe/${recipe.idMeal}`}>
               <div className="recipe">
                 <img src={recipe.strMealThumb} alt="" />
                 <h2>{recipe.strMeal}</h2>

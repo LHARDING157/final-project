@@ -4,6 +4,7 @@ import "./App.css";
 import Recipes from "./pages/Recipes";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import RecipePage from "./pages/RecipePage";
+import Home from "./pages/Home";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -26,12 +27,11 @@ export default function App() {
       const API = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`;
       const res = await axios.get(API);
       setRecipes(res.data.meals);
-      console.log(res.data);
+      console.log(recipes);
+      console.log(res.data.meals);
     } catch (error) {
       console.log(error);
-      setRecipes(
-        "https://aioseo.com/wp-content/uploads/2021/04/how-to-find-and-fix-404-errors-in-wordpress.png.webp"
-      );
+      setRecipes(...recipes);
     }
   }
 
@@ -39,9 +39,14 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         <h1 className="title">RandomFoods</h1>
-        <Link to="/">Home</Link>
-        <Link to="/Recipes">Recipes</Link>
+        <Link className="nav" to="/">
+          Home
+        </Link>
+        <Link className="nav" to="/Recipes">
+          Recipes
+        </Link>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route
             path="/Recipes"
             element={

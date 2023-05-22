@@ -3,9 +3,23 @@ body {
   font-family: sans-serif;
 }
 
+.nav {
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+}
+
 .title {
   font-size: 2rem;
   text-align: center;
+}
+
+.home-container {
+  max-width: 1024px;
+  text-align: center;
+  margin: auto;
 }
 
 .recipe-container {
@@ -80,6 +94,9 @@ body {
 .recipePage img {
   width: 350px;
   height: 350px;
+}
+
+.ingredients {
 }
 
 @media only screen and (max-width: 600px) {
