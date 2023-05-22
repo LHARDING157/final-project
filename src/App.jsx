@@ -38,13 +38,15 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1 className="title">RandomFoods</h1>
-        <Link className="nav" to="/">
-          Home
-        </Link>
-        <Link className="nav" to="/Recipes">
-          Recipes
-        </Link>
+        <div className="navhead">
+          <h1 className="title">RandomFoods</h1>
+          <Link className="nav" to="/">
+            Home
+          </Link>
+          <Link className="nav" to="/Recipes">
+            Recipes
+          </Link>
+        </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

@@ -11,6 +11,11 @@ body {
   margin: 10px;
 }
 
+.navhead {
+  display: flex;
+  align-items: center;
+}
+
 .title {
   font-size: 2rem;
   text-align: center;
@@ -28,7 +33,7 @@ body {
   justify-content: space-around;
   padding: 2rem;
   margin: auto;
-  max-width: 1280px;
+  max-width: 1024px;
   gap: 10px;
 }
 
@@ -97,6 +102,7 @@ body {
 }
 
 .ingredients {
+  font-size: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
