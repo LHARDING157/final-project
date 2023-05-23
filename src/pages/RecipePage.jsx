@@ -86,7 +86,7 @@ export default function RecipePage() {
           </p>
         </div>
       </div>
-      <p>{recipe.strInstructions}</p>
+      <p className="instructions">{recipe.strInstructions}</p>
     </div>
   );
 }

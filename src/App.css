@@ -27,6 +27,16 @@ body {
   margin: auto;
 }
 
+.home-container img {
+  height: 300px;
+  width: 300px;
+}
+
+.home-img {
+  display: flex;
+  justify-content: space-around;
+}
+
 .recipe-container {
   display: flex;
   flex-wrap: wrap;
@@ -96,7 +106,7 @@ body {
   align-items: flex-start;
 }
 
-.recipePage-container p {
+.instructions {
   margin: 20px;
   white-space: pre-line;
 }
@@ -113,5 +123,14 @@ body {
 @media only screen and (max-width: 600px) {
   .wrap {
     width: 80%;
+  }
+  .home-container img {
+    height: 100px;
+    width: 100px;
+  }
+  .recipePage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
