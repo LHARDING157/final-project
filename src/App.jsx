@@ -27,7 +27,11 @@ export default function App() {
     try {
       const API = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`;
       const res = await axios.get(API);
-      setRecipes(res.data.meals);
+      if (res.data.meals) {
+        setRecipes(res.data.meals);
+      } else {
+        setRecipes([]);
+      }
       console.log(res.data.meals);
     } catch (error) {
       console.log(error);

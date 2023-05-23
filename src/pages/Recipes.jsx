@@ -32,6 +32,7 @@ export default function Recipes({
             </Link>
           );
         })}
+        {recipes.length === 0 && <h3>No results found</h3>}
       </div>
     </div>
   );
