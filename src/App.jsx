@@ -20,6 +20,7 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    getRecipes();
   }
 
   async function getRecipes() {
@@ -27,11 +28,10 @@ export default function App() {
       const API = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`;
       const res = await axios.get(API);
       setRecipes(res.data.meals);
-      console.log(recipes);
       console.log(res.data.meals);
     } catch (error) {
       console.log(error);
-      setRecipes(...recipes);
+      setRecipes([]);
     }
   }
 

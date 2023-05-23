@@ -15,7 +15,7 @@ export default function Recipes({
             onChange={handleChange}
             placeholder="Search Recipe"
           />
-          <button className="searchButton" onClick={getRecipes}>
+          <button className="searchButton" type="submit">
             🔍
           </button>
         </form>
