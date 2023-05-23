@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Recipes({
-  handleChange,
-  handleSubmit,
-  getRecipes,
-  recipes,
-}) {
+export default function Recipes({ handleChange, handleSubmit, recipes }) {
   return (
     <div>
       <div className="wrap">
@@ -24,7 +19,11 @@ export default function Recipes({
         {recipes.map(function (recipe, idx) {
           console.log(recipe);
           return (
-            <Link key={idx} to={`/recipe/${recipe.idMeal}`}>
+            <Link
+              className="recipeNames"
+              key={idx}
+              to={`/recipe/${recipe.idMeal}`}
+            >
               <div className="recipe">
                 <img src={recipe.strMealThumb} alt="" />
                 <h2>{recipe.strMeal}</h2>

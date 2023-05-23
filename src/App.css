@@ -37,6 +37,11 @@ body {
   gap: 10px;
 }
 
+.recipeNames {
+  text-decoration: none;
+  color: black;
+}
+
 .recipe {
   height: 400px;
   width: 300px;
