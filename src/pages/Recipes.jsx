@@ -19,15 +19,26 @@ export default function Recipes({
             🔍
           </button>
         </form>
+        <form className="categories">
+          <select onChange={handleFilter}>
+            <option value="all">All</option>
+            <option value="beef">Beef</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="chicken">Chicken</option>
+            <option value="dessert">Dessert</option>
+            <option value="goat">Goat</option>
+            <option value="lamb">Lamb</option>
+            <option value="miscellaneous">Miscellaneous</option>
+            <option value="pasta">Pasta</option>
+            <option value="pork">Pork</option>
+            <option value="seafood">Seafood</option>
+            <option value="side">Sides</option>
+            <option value="starter">Starters</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+          </select>
+        </form>
       </div>
-
-      <form>
-        <span>Categories</span>
-        <select onChange={handleFilter}>
-          <option value="all">All</option>
-          <option value="vegan">Vegan</option>
-        </select>
-      </form>
 
       <div className="recipe-container">
         {recipes.map(function (recipe, idx) {
