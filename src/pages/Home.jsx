@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [random, setRandom] = useState({});
@@ -34,10 +35,17 @@ export default function Home() {
     <div className="home-container">
       <h3>Welcome</h3>
       <div className="home-img">
-        <img src={random.strMealThumb} alt="" />
-        <img src={random2.strMealThumb} alt="" />
-        <img src={random3.strMealThumb} alt="" />
+        <Link className="recipeNames" to={`/recipe/${random.idMeal}`}>
+          <img src={random.strMealThumb} alt="" />
+        </Link>
+        <Link className="recipeNames" to={`/recipe/${random2.idMeal}`}>
+          <img src={random2.strMealThumb} alt="" />
+        </Link>
+        <Link className="recipeNames" to={`/recipe/${random3.idMeal}`}>
+          <img src={random3.strMealThumb} alt="" />
+        </Link>
       </div>
+
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam at
         porro qui adipisci, tenetur cum in, beatae labore ipsa quas commodi

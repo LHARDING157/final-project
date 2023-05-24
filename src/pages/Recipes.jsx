@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
-export default function Recipes({ handleChange, handleSubmit, recipes }) {
+export default function Recipes({
+  handleChange,
+  handleSubmit,
+  recipes,
+  handleFilter,
+}) {
   return (
     <div>
       <div className="wrap">
@@ -15,6 +20,15 @@ export default function Recipes({ handleChange, handleSubmit, recipes }) {
           </button>
         </form>
       </div>
+
+      <form>
+        <span>Categories</span>
+        <select onChange={handleFilter}>
+          <option value="all">All</option>
+          <option value="vegan">Vegan</option>
+        </select>
+      </form>
+
       <div className="recipe-container">
         {recipes.map(function (recipe, idx) {
           console.log(recipe);

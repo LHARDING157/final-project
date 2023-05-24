@@ -12,7 +12,6 @@ export default function App() {
 
   useEffect(() => {
     getRecipes();
-    getCategory();
   }, []);
 
   function handleChange(event) {
@@ -22,28 +21,21 @@ export default function App() {
   function handleSubmit(event) {
     event.preventDefault();
     getRecipes();
-    getCategory();
+  }
+
+  async function handleFilter(event) {
+    if (event.target.value == "all") {
+      getRecipes();
+    } else {
+      const API = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${event.target.value}`;
+      const res = await axios.get(API);
+      setRecipes(res.data.meals);
+    }
   }
 
   async function getRecipes() {
     try {
       const API = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`;
-      const res = await axios.get(API);
-      if (res.data.meals) {
-        setRecipes(res.data.meals);
-      } else {
-        setRecipes([]);
-      }
-      console.log(res.data.meals);
-    } catch (error) {
-      console.log(error);
-      setRecipes([]);
-    }
-  }
-
-  async function getCategory() {
-    try {
-      const API = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${searchQuery}`;
       const res = await axios.get(API);
       if (res.data.meals) {
         setRecipes(res.data.meals);
@@ -77,9 +69,9 @@ export default function App() {
               <Recipes
                 recipes={recipes}
                 getRecipes={getRecipes}
-                getCategory={getCategory}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
+                handleFilter={handleFilter}
               />
             }
           />
