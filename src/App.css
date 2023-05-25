@@ -95,7 +95,7 @@ body {
 }
 
 .wrap {
-  width: 40%;
+  width: 35%;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -131,6 +131,12 @@ body {
 .categories option {
   font-size: 20px;
   background: lightblue;
+}
+
+.about-container {
+  max-width: 1024px;
+  text-align: center;
+  margin: auto;
 }
 
 @media only screen and (max-width: 600px) {

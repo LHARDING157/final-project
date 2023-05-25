@@ -5,6 +5,7 @@ import Recipes from "./pages/Recipes";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import RecipePage from "./pages/RecipePage";
 import Home from "./pages/Home";
+import About from "./pages/About";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -53,12 +54,17 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         <div className="navhead">
-          <h1 className="title">RandomFoods</h1>
+          <Link className="nav" to="/">
+            <h1 className="title">RandomFoods</h1>
+          </Link>
           <Link className="nav" to="/">
             Home
           </Link>
           <Link className="nav" to="/Recipes">
             Recipes
+          </Link>
+          <Link className="nav" to="/About">
+            About
           </Link>
         </div>
         <Routes>
@@ -76,6 +82,7 @@ export default function App() {
             }
           />
           <Route path="/Recipe/:id" element={<RecipePage />} />
+          <Route path="/About" element={<About />} />
         </Routes>
       </div>
     </BrowserRouter>
