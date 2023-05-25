@@ -84,6 +84,13 @@ export default function App() {
           <Route path="/Recipe/:id" element={<RecipePage />} />
           <Route path="/About" element={<About />} />
         </Routes>
+        <div class="footerWrap">
+          <div class="footer">
+            <div class="footerContent">
+              <p className="footer">&#169; Luke Harding</p>
+            </div>
+          </div>
+        </div>
       </div>
     </BrowserRouter>
   );
